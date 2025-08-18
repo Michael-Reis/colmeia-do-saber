@@ -7,6 +7,7 @@ import {
   useSpring,
   MotionValue,
 } from "motion/react";
+import { AnimatedGradientText } from "../magicui/animated-gradient-text";
 
 
 
@@ -104,9 +105,10 @@ export const HeroParallax = ({
 export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="font-heading text-3xl md:text-4xl font-semibold mb-4 text-gray-800">
+
+      <AnimatedGradientText className="font-heading text-3xl md:text-4xl font-semibold mb-4">
         Bem-vindo à nossa Escola
-      </h1>
+      </AnimatedGradientText>
       <p className="max-w-2xl text-base md:text-xl mt-8 text-gray-500">
         Aqui, as crianças aprendem e se desenvolvem brincando! Nossa pré-escola oferece um ambiente acolhedor, seguro e divertido, onde cada momento é uma oportunidade para explorar, criar e crescer. Veja fotos das nossas turmas em atividades, aulas e momentos de alegria no dia a dia.
       </p>

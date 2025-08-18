@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { AnimatedShinyText } from "./magicui/animated-shiny-text"
+import { AnimatedGradientText } from "./magicui/animated-gradient-text"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,9 +13,16 @@ export function Navigation() {
     { href: "#sobre", label: "Sobre Nós" },
     { href: "#cursos", label: "Cursos" },
     { href: "#infraestrutura", label: "Infraestrutura" },
-    { href: "#atividades", label: "Atividades" },
     { href: "#contato", label: "Contato" },
   ]
+
+  const handleSmoothScroll = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    event.preventDefault()
+    const targetElement = document.querySelector(href)
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" })
+    }
+  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
@@ -22,7 +30,10 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <span className="font-heading font-bold text-xl text-yellow-400">Colmeia do Saber</span>
+            <AnimatedGradientText className="font-heading font-bold text-xl" colorFrom="#F0DC00" colorTo="#FB26FF" >
+              Colmeia do Saber
+            </AnimatedGradientText>
+
           </div>
 
           {/* Desktop Menu */}
@@ -32,13 +43,13 @@ export function Navigation() {
                 key={item.href}
                 href={item.href}
                 className="text-gray-600 transition-colors font-light"
+                onClick={(e) => handleSmoothScroll(e, item.href)}
               >
                 {item.label}
               </a>
             ))}
             <Button className="bg-yellow-300 text-black">
               <AnimatedShinyText>Matricule-se</AnimatedShinyText>
-
             </Button>
           </div>
 
@@ -57,7 +68,10 @@ export function Navigation() {
                   key={item.href}
                   href={item.href}
                   className="text-foreground hover:text-primary transition-colors font-medium py-2"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    handleSmoothScroll(e, item.href)
+                    setIsOpen(false)
+                  }}
                 >
                   {item.label}
                 </a>

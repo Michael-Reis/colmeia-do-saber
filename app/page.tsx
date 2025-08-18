@@ -20,7 +20,7 @@ export default function HomePage() {
       <section id="sobre" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <TypewriterEffectDemo />
+            <TypewriterEffectDemo/>
             <p className="text-lg text-gray-500 max-w-3xl mx-auto mt-4">
               Um ambiente acolhedor e estimulante onde cada criança é única e especial, desenvolvendo suas habilidades
               através do brincar e aprender.
@@ -447,7 +447,11 @@ export default function HomePage() {
           <div className="grid md:grid-cols-4 gap-8 mb-8 border-t border-border pt-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <span className="font-heading font-bold text-xl text-foreground">Colmeia do Saber</span>
+
+                <AnimatedGradientText className="font-heading font-bold text-xl" colorFrom="#F0DC00" colorTo="#FB26FF" >
+                  Colmeia do Saber
+                </AnimatedGradientText>
+
               </div>
               <p className="text-muted-foreground text-sm">Cuidando e educando com amor desde os primeiros passos.</p>
             </div>
