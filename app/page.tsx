@@ -1,0 +1,540 @@
+import { HeroCarousel } from "@/components/hero-carousel"
+import { WhatsAppFloat } from "@/components/whatsapp-float"
+import { Navigation } from "@/components/navigation"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { MarqueeDemo } from "@/components/comments"
+import { HeroParallaxDemo } from "@/components/paralax"
+import { TypewriterEffectDemo } from "@/components/school"
+import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text"
+
+export default function HomePage() {
+  return (
+    <div className="min-h-screen">
+      <Navigation />
+
+      <div className="pt-16">
+        <HeroCarousel />
+      </div>
+
+      {/* About Section */}
+      <section id="sobre" className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <TypewriterEffectDemo />
+            <p className="text-lg text-gray-500 max-w-3xl mx-auto mt-4">
+              Um ambiente acolhedor e estimulante onde cada criança é única e especial, desenvolvendo suas habilidades
+              através do brincar e aprender.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                image: "/missao/missao.jpg",
+                title: "Nossa Missão",
+                description:
+                  "Proporcionar educação infantil de qualidade, respeitando o desenvolvimento natural de cada criança em um ambiente seguro e amoroso.",
+                color: "text-primary",
+              },
+              {
+                image: "/missao/visao.jpg",
+                title: "Nossa Visão",
+                description:
+                  "Ser referência em educação infantil, formando crianças felizes, confiantes e preparadas para os próximos desafios.",
+                color: "text-secondary",
+              },
+              {
+                image: "/missao/valores.jpg",
+                title: "Nossos Valores",
+                description: "Amor, respeito, criatividade, diversão e desenvolvimento integral de cada criança.",
+                color: "text-accent",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={item.image || "/placeholder.svg"}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent opacity-90"></div>
+                <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                  <h3
+                    className={`font-heading text-2xl font-bold mb-3 transform transition-transform duration-300 group-hover:translate-y-[-4px] ${item.color}`}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed opacity-90 transform transition-all duration-300 group-hover:opacity-100">
+                    {item.description}
+                  </p>
+                  <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full mt-4 transform transition-all duration-300 group-hover:w-24"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <MarqueeDemo />
+      {/* Differentials Section */}
+      <section className="py-16 px-4 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <AnimatedGradientText className="font-heading text-3xl md:text-4xl font-semibold mb-4">
+              Nossos Diferenciais
+            </AnimatedGradientText>
+
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold mb-4 text-gray-800"></h2>
+            <p className="text-lg text-gray-600 text-gray-500">
+              O que nos torna especiais no cuidado e educação das crianças
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                image: "/diferenciais/turma.jpg",
+                title: "Turmas Reduzidas",
+                desc: "Máximo 16 alunos por sala",
+                color: "text-primary",
+              },
+              {
+                image: "/diferenciais/professores.jpg",
+                title: "Professores Capacitados",
+                desc: "Equipe especializada em educação infantil",
+                color: "text-secondary",
+              },
+              {
+                image: "/diferenciais/cuidados.jpg",
+                title: "Cuidado Especial",
+                desc: "Atenção individualizada para cada criança",
+                color: "text-accent",
+              },
+              {
+                image: "/diferenciais/ingles.jpg",
+                title: "Inglês Desde Cedo",
+                desc: "Aulas de inglês de forma lúdica",
+                color: "text-chart-1",
+              },
+              {
+                image: "/diferenciais/bale.png",
+                title: "Ballet",
+                desc: "Desenvolvimento da coordenação e expressão",
+                color: "text-chart-2",
+              },
+              {
+                image: "/diferenciais/judo.png",
+                title: "Judô",
+                desc: "Disciplina e respeito através das artes marciais",
+                color: "text-chart-3",
+              },
+              {
+                image: "/diferenciais/artes.png",
+                title: "Arte e criatividade",
+                desc: "Estimulo à expressão artística",
+                color: "text-chart-4",
+              },
+              {
+                image: "/diferenciais/cozinha.jpg",
+                title: "Culinária",
+                desc: "Espaço para aulas de culinária",
+                color: "text-chart-5",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={item.image || "/placeholder.svg"}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-90"></div>
+                <div className="absolute inset-0 flex flex-col justify-end p-4 text-white">
+                  <h3
+                    className={`font-heading text-lg font-bold mb-2 transform transition-transform duration-300 group-hover:translate-y-[-4px] ${item.color}`}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-xs leading-relaxed opacity-90 transform transition-all duration-300 group-hover:opacity-100">
+                    {item.desc}
+                  </p>
+                  <div className="w-12 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full mt-3 transform transition-all duration-300 group-hover:w-16"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <HeroParallaxDemo />
+
+      {/* Updated Courses Section */}
+      <section id="cursos" className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <AnimatedGradientText className="font-heading text-3xl md:text-4xl font-semibold mb-4">
+              Nossos Cursos
+            </AnimatedGradientText>
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground">
+              Educação infantil especializada para cada fase do desenvolvimento
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                image: "/planos/bercario.jpg",
+                title: "Berçário",
+                subtitle: "4 meses a 2 anos",
+                features: [
+                  "Cuidados especializados para bebês",
+                  "Estímulos sensoriais e motores",
+                  "Rotina de alimentação e sono",
+                  "Ambiente seguro e acolhedor",
+                ],
+                color: "text-primary",
+              },
+              {
+                image: "/planos/educacao.jpg",
+                title: "Educação Infantil",
+                subtitle: "2 a 5 anos",
+                features: [
+                  "Desenvolvimento através do brincar",
+                  "Preparação para alfabetização",
+                  "Inglês de forma lúdica",
+                  "Atividades artísticas e motoras",
+                ],
+                color: "text-secondary",
+              },
+              {
+                image: "/planos/recreacao.jpg",
+                title: "Recreação",
+                subtitle: "2 a 5 anos",
+                features: [
+                  "Atividades lúdicas e esportivas",
+                  "Brincadeiras dirigidas e livres",
+                  "Integração social e trabalho em equipe",
+                  "Momentos de contação de histórias",
+                ],
+                color: "text-accent",
+              },
+            ].map((course, index) => (
+              <div
+                key={index}
+                className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={course.image || "/placeholder.svg"}
+                    alt={course.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-95"></div>
+                <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-6 lg:p-8 text-white">
+                  <h3
+                    className={`font-heading text-xl md:text-1xl lg:text-1xl font-bold transform transition-transform duration-300 group-hover:translate-y-[-4px] ${course.color}`}
+                  >
+                    {course.title}
+                  </h3>
+                  <p className="text-sm md:text-base lg:text-lg font-medium mb-4 opacity-90">{course.subtitle}</p>
+                  <ul className="space-y-2 text-xs md:text-sm lg:text-base opacity-90 transform transition-all duration-300 group-hover:opacity-100">
+                    {course.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full flex-shrink-0"></div>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="w-16 md:w-20 lg:w-24 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full mt-6 transform transition-all duration-300 group-hover:w-32"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section >
+
+      {/* Updated Infrastructure Section */}
+      < section id="infraestrutura" className="py-16 px-4" >
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <AnimatedGradientText className="font-heading text-3xl md:text-4xl font-semibold mb-4">
+              Nossa Infraestrutura
+            </AnimatedGradientText>
+
+            <p className="text-lg text-muted-foreground">
+              Espaços seguros e estimulantes para o desenvolvimento das crianças
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                image: "/placeholder.svg?height=400&width=600",
+                title: "Salas de Aula",
+                description: "Ambientes acolhedores e coloridos, equipados especialmente para o aprendizado infantil",
+              },
+              {
+                image: "/placeholder.svg?height=400&width=600",
+                title: "Parque",
+                description: "Área externa segura com brinquedos e equipamentos para diversão e desenvolvimento motor",
+              },
+              {
+                image: "/placeholder.svg?height=400&width=600",
+                title: "Sala de Televisão",
+                description: "Espaço confortável para atividades audiovisuais educativas e momentos de relaxamento",
+              },
+              {
+                image: "/placeholder.svg?height=400&width=600",
+                title: "Refeitório",
+                description:
+                  "Local aconchegante para refeições nutritivas e desenvolvimento de hábitos alimentares saudáveis",
+              },
+              {
+                image: "/placeholder.svg?height=400&width=600",
+                title: "Playground Interno",
+                description: "Área coberta com brinquedos seguros para atividades físicas em qualquer clima",
+              },
+              {
+                image: "/placeholder.svg?height=400&width=600",
+                title: "Jardim Educativo",
+                description: "Espaço verde onde as crianças aprendem sobre natureza e sustentabilidade",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={item.image || "/placeholder.svg"}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-90"></div>
+                <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                  <h3 className="font-heading text-2xl font-bold mb-3 transform transition-transform duration-300 group-hover:translate-y-[-4px]">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed opacity-90 transform transition-all duration-300 group-hover:opacity-100">
+                    {item.description}
+                  </p>
+                  <div className="w-16 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full mt-4 transform transition-all duration-300 group-hover:w-24"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section >
+
+      {/* Updated FAQ Section */}
+      < section className="py-16 px-4 bg-gradient-to-br from-primary/5 to-secondary/5" >
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-primary">Perguntas Frequentes</h2>
+            <p className="text-lg text-muted-foreground">Tire suas dúvidas sobre nossa pré-escola</p>
+          </div>
+
+          <Accordion type="single" collapsible className="space-y-4">
+            {[
+              {
+                question: "Qual o horário de funcionamento da pré-escola?",
+                answer:
+                  "Funcionamos das 7h às 18h, com opções de meio período (manhã ou tarde) e período integral para atender às necessidades das famílias.",
+              },
+              {
+                question: "Como funciona o processo de matrícula?",
+                answer:
+                  "As matrículas abrem em outubro para o ano seguinte. É necessário agendar uma visita, conhecer nossa proposta pedagógica e apresentar a documentação completa.",
+              },
+              {
+                question: "Quantas crianças há por turma?",
+                answer:
+                  "Trabalhamos com turmas reduzidas de no máximo 16 alunos por sala, garantindo atenção individualizada para cada criança.",
+              },
+              {
+                question: "A partir de que idade vocês recebem as crianças?",
+                answer: "Recebemos bebês a partir de 4 meses no berçário e crianças até 5 anos na educação infantil.",
+              },
+              {
+                question: "Como é a alimentação na escola?",
+                answer:
+                  "Oferecemos alimentação balanceada preparada por nutricionista, respeitando restrições alimentares e necessidades especiais de cada criança.",
+              },
+              {
+                question: "Vocês oferecem atividades extracurriculares?",
+                answer:
+                  "Sim! Oferecemos balé, judô, inglês e atividades artísticas como parte da nossa proposta pedagógica, sem custo adicional.",
+              },
+              {
+                question: "Como é feita a comunicação com os pais?",
+                answer:
+                  "Mantemos comunicação constante através de agenda diária, reuniões periódicas, WhatsApp e relatórios de desenvolvimento da criança.",
+              },
+            ].map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="bg-white border-1s   transition-colors"
+              >
+                <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                  <span className="font-heading text-lg text-primary text-left">{faq.question}</span>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-4">
+                  <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section >
+
+      {/* Contact Section */}
+      {/* <section id="contato" className="py-16 px-4 bg-muted">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-foreground">Entre em Contato</h2>
+            <p className="text-lg text-muted-foreground">Estamos prontos para receber sua família</p>
+          </div>
+
+          <div className="text-center">
+            <div className="max-w-2xl mx-auto">
+              <h3 className="font-heading text-2xl font-bold mb-8 text-foreground">Informações de Contato</h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="text-center">
+                  <p className="font-medium text-lg text-foreground mb-2">Endereço</p>
+                  <p className="text-muted-foreground">
+                    Rua das Crianças, 456 - Jardim Feliz
+                    <br />
+                    São Paulo - SP, 01234-567
+                  </p>
+                </div>
+                <div className="text-center">
+                  <p className="font-medium text-lg text-foreground mb-2">Telefone</p>
+                  <p className="text-muted-foreground">(11) 3456-7890</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-medium text-lg text-foreground mb-2">E-mail</p>
+                  <p className="text-muted-foreground">contato@colmeiadosaber.com.br</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-medium text-lg text-foreground mb-2">Horário de Atendimento</p>
+                  <p className="text-muted-foreground">
+                    Segunda a Sexta: 7h às 18h
+                    <br />
+                    Sábado: 8h às 12h
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+      {/* Footer */}
+
+      <footer className="bg-muted py-12 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 mb-8 border-t border-border pt-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <span className="font-heading font-bold text-xl text-foreground">Colmeia do Saber</span>
+              </div>
+              <p className="text-muted-foreground text-sm">Cuidando e educando com amor desde os primeiros passos.</p>
+            </div>
+            <div>
+              <h4 className="font-heading font-semibold mb-4 text-foreground">Links Rápidos</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a href="#sobre" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Sobre Nós
+                  </a>
+                </li>
+                <li>
+                  <a href="#cursos" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Cursos
+                  </a>
+                </li>
+                <li>
+                  <a href="#infraestrutura" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Infraestrutura
+                  </a>
+                </li>
+                <li>
+                  <a href="#atividades" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Atividades
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-heading font-semibold mb-4 text-foreground">Informações</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Matrículas
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Calendário
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Documentos
+                  </a>
+                </li>
+                <li>
+                  <a href="#contato" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Contato
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-heading font-semibold mb-4 text-foreground">Redes Sociais</h4>
+              <div className="flex gap-4">
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-muted hover:bg-accent rounded-full flex items-center justify-center text-muted-foreground hover:text-accent-foreground transition-colors"
+                >
+                  {/* Placeholder for Facebook icon */}
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-muted hover:bg-accent rounded-full flex items-center justify-center text-muted-foreground hover:text-accent-foreground transition-colors"
+                >
+                  {/* Placeholder for Instagram icon */}
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-muted hover:bg-accent rounded-full flex items-center justify-center text-muted-foreground hover:text-accent-foreground transition-colors"
+                >
+                  {/* Placeholder for WhatsApp icon */}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-border pt-8 text-center">
+            <p className="text-muted-foreground text-sm">
+              © 2025 Pré-Escola Colmeia do Saber. Todos os direitos reservados.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      <WhatsAppFloat />
+    </div >
+  )
+}

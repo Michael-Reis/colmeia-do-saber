@@ -1,0 +1,169 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to vibrant children-friendly colors */
+  --background: 0 0% 100%; /* Soft White */
+  --foreground: 0 0% 3.9%; /* Dark Gray for text */
+  --card: 0 0% 100%; /* Light Cream for card backgrounds */
+  --card-foreground: 0 0% 9%; /* Bright Blue for card text */
+  --popover: 0 0% 100%; /* Sunshine Yellow for popover backgrounds */
+  --popover-foreground: 0 0% 3.9%; /* Dark Gray for popover text */
+  --primary: 0 0% 9%; /* Bright Blue for primary actions */
+  --primary-foreground: 0 0% 98%; /* White text on primary buttons */
+  --secondary: 0 0% 96.1%; /* Cheerful Pink for secondary actions */
+  --secondary-foreground: 0 0% 9%; /* White text on secondary buttons */
+  --muted: 0 0% 96.1%; /* Light Cream for muted backgrounds */
+  --muted-foreground: 0 0% 45.1%; /* Dark Gray for muted text */
+  --accent: 0 0% 96.1%; /* Energetic Orange for accents */
+  --accent-foreground: 0 0% 9%; /* White text on accent buttons */
+  --destructive: 0 84.2% 60.2%; /* Red for destructive actions */
+  --destructive-foreground: 0 0% 98%; /* White text on destructive buttons */
+  --border: 0 0% 89.8%; /* Light Gray for borders */
+  --input: 0 0% 89.8%; /* White for input fields */
+  --ring: 0 0% 3.9%; /* Bright Blue for focus rings */
+  --chart-1: 12 76% 61%; /* Lively Green for charts */
+  --chart-2: 173 58% 39%; /* Cheerful Pink for charts */
+  --chart-3: 197 37% 24%; /* Sunshine Yellow for charts */
+  --chart-4: 43 74% 66%; /* Energetic Orange for charts */
+  --chart-5: 27 87% 67%; /* Bright Blue for charts */
+  --radius: 0.5rem; /* Rounded corners for elements */
+  --sidebar: 0 0% 98%; /* Light Cream for sidebar background */
+  --sidebar-foreground: 0 0% 45.1%; /* Dark Gray for sidebar text */
+  --sidebar-primary: 0 0% 9%; /* Bright Blue for primary sidebar actions */
+  --sidebar-primary-foreground: 0 0% 98%; /* White text on primary sidebar actions */
+  --sidebar-accent: 0 0% 96.1%; /* Energetic Orange for sidebar accents */
+  --sidebar-accent-foreground: 0 0% 9%; /* White text on sidebar accents */
+  --sidebar-border: 0 0% 89.8%; /* Light Gray for sidebar borders */
+  --sidebar-ring: 0 0% 3.9%; /* Bright Blue for sidebar focus rings */
+  /* Updated font variables to use Poppins and Roboto for children-friendly typography */
+  --font-poppins: "Poppins", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+}
+
+.dark {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 0 0% 9%;
+  --secondary: 0 0% 14.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 14.9%;
+  --muted-foreground: 0 0% 63.9%;
+  --accent: 0 0% 14.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 0 0% 83.1%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+  --sidebar: 0 0% 3.9%;
+  --sidebar-foreground: 0 0% 63.9%;
+  --sidebar-primary: 0 0% 98%;
+  --sidebar-primary-foreground: 0 0% 9%;
+  --sidebar-accent: 0 0% 14.9%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-border: 0 0% 14.9%;
+  --sidebar-ring: 0 0% 83.1%;
+}
+
+@theme inline {
+  /* Updated font variables to use new children-friendly fonts */
+  --font-sans: var(--font-roboto);
+  --font-heading: var(--font-poppins);
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+  --animate-shiny-text: shiny-text 8s infinite
+;
+  @keyframes shiny-text {
+  0%, 90%, 100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;
+    }
+  30%, 60% {
+    background-position: calc(100% + var(--shiny-width)) 0;
+    }
+  }
+  --animate-gradient: gradient 8s linear infinite;
+  @keyframes gradient {
+  to {
+    background-position: var(--bg-size, 300%) 0;
+    }
+  }}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* Added heading font class for children-friendly typography */
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+}
