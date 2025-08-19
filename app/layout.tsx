@@ -1,4 +1,5 @@
 import type React from "react"
+import ScrollToTopButton from "../components/scroll-to-top"
 import type { Metadata } from "next"
 import { Poppins, Roboto } from "next/font/google"
 import "./globals.css"
@@ -31,7 +32,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${poppins.variable} ${roboto.variable} antialiased`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        {children}
+        <ScrollToTopButton />
+      </body>
     </html>
   )
 }
