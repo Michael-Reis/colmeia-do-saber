@@ -20,7 +20,7 @@ export default function HomePage() {
       <section id="sobre" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <TypewriterEffectDemo/>
+            <TypewriterEffectDemo />
             <p className="text-lg text-gray-500 max-w-3xl mx-auto mt-4">
               Um ambiente acolhedor e estimulante onde cada criança é única e especial, desenvolvendo suas habilidades
               através do brincar e aprender.
@@ -277,37 +277,41 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
+
               {
-                image: "/placeholder.svg?height=400&width=600",
-                title: "Salas de Aula",
-                description: "Ambientes acolhedores e coloridos, equipados especialmente para o aprendizado infantil",
-              },
-              {
-                image: "/placeholder.svg?height=400&width=600",
+                image: "/espacos/parque.jpeg",
                 title: "Parque",
                 description: "Área externa segura com brinquedos e equipamentos para diversão e desenvolvimento motor",
               },
               {
-                image: "/placeholder.svg?height=400&width=600",
+                image: "/espacos/sala-01.jpeg",
+                title: "Salas de Aula",
+                description: "Ambientes acolhedores e coloridos, equipados especialmente para o aprendizado infantil",
+              },
+
+              {
+                image: "/espacos/cinema-02.jpeg",
                 title: "Sala de Televisão",
                 description: "Espaço confortável para atividades audiovisuais educativas e momentos de relaxamento",
               },
               {
-                image: "/placeholder.svg?height=400&width=600",
+                image: "/espacos/jardim.jpeg",
+                title: "Sala de aula",
+                description: "Sala de aula ampla e iluminada, com recursos pedagógicos modernos e confortáveis",
+              },
+              {
+                image: "/espacos/playground-02.jpeg",
+                title: "Playground Coberto",
+                description: "Área coberta com brinquedos seguros para atividades físicas em qualquer clima",
+              },
+
+              {
+                image: "/espacos/refeitorio-01.jpeg",
                 title: "Refeitório",
                 description:
                   "Local aconchegante para refeições nutritivas e desenvolvimento de hábitos alimentares saudáveis",
               },
-              {
-                image: "/placeholder.svg?height=400&width=600",
-                title: "Playground Interno",
-                description: "Área coberta com brinquedos seguros para atividades físicas em qualquer clima",
-              },
-              {
-                image: "/placeholder.svg?height=400&width=600",
-                title: "Jardim Educativo",
-                description: "Espaço verde onde as crianças aprendem sobre natureza e sustentabilidade",
-              },
+
             ].map((item, index) => (
               <div
                 key={index}
