@@ -4,26 +4,51 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
-const slides: Array<{ image: string; title?: string; subtitle?: string; cta?: string }> = [
+const slides: Array<{
+	imageDesktop: string
+	imageMobile: string
+	title?: string
+	subtitle?: string
+	cta?: string
+	linkDesktop?: string
+	linkMobile?: string
+}> = [
 	{
-		image: "/banner/banner-01.png",
+		imageDesktop: "/banner/banner-06.png",
+		imageMobile: "/banner/banner-mobile-1.png",
+		linkDesktop: "https://colmeia.com.br/desktop",
+		linkMobile: "https://colmeia.com.br/mobile",
 	},
 	{
-		image: "/banner/banner-02.png",
+		imageDesktop: "/banner/banner-02.png",
+		imageMobile: "/banner/banner-mobile-2.png",
+		linkDesktop: "https://colmeia.com.br/desktop2",
+		linkMobile: "https://colmeia.com.br/mobile2",
 	},
 	{
-		image: "/banner/banner-03.png",
+		imageDesktop: "/banner/banner-05.png",
+		imageMobile: "/banner/banner-mobile-3.png",
+		linkDesktop: "https://colmeia.com.br/desktop3",
+		linkMobile: "https://colmeia.com.br/mobile3",
 	},
 ]
 
 export function HeroCarousel() {
 	const [currentSlide, setCurrentSlide] = useState(0)
+	const [isMobile, setIsMobile] = useState(false)
 
 	useEffect(() => {
 		const timer = setInterval(() => {
 			setCurrentSlide((prev) => (prev + 1) % slides.length)
 		}, 5000)
 		return () => clearInterval(timer)
+	}, [])
+
+	useEffect(() => {
+		const checkMobile = () => setIsMobile(window.innerWidth < 768)
+		checkMobile()
+		window.addEventListener("resize", checkMobile)
+		return () => window.removeEventListener("resize", checkMobile)
 	}, [])
 
 	const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length)
@@ -34,12 +59,11 @@ export function HeroCarousel() {
 			{slides.map((slide, index) => (
 				<div
 					key={index}
-					className={`absolute inset-0 transition-opacity duration-1000 ${
-						index === currentSlide ? "opacity-100" : "opacity-0"
-					}`}
+					className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
+						}`}
 				>
 					<img
-						src={slide.image || "/placeholder.svg"}
+						src={isMobile ? slide.imageMobile : slide.imageDesktop}
 						alt={slide.title}
 						className="w-full h-full object-cover"
 					/>
@@ -57,12 +81,18 @@ export function HeroCarousel() {
 								</p>
 							)}
 							{slide.cta && (
-								<Button
-									size="lg"
-									className="bg-primary hover:bg-primary/90 text-primary-foreground"
+								<a
+									href={isMobile ? slide.linkMobile : slide.linkDesktop}
+									target="_blank"
+									rel="noopener noreferrer"
 								>
-									{slide.cta}
-								</Button>
+									<Button
+										size="lg"
+										className="bg-primary hover:bg-primary/90 text-primary-foreground"
+									>
+										{slide.cta}
+									</Button>
+								</a>
 							)}
 						</div>
 					</div>
@@ -88,9 +118,8 @@ export function HeroCarousel() {
 					<button
 						key={index}
 						onClick={() => setCurrentSlide(index)}
-						className={`w-3 h-3 rounded-full transition-colors ${
-							index === currentSlide ? "bg-white" : "bg-white/50"
-						}`}
+						className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? "bg-white" : "bg-white/50"
+							}`}
 					/>
 				))}
 			</div>

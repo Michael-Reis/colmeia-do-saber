@@ -1,43 +1,74 @@
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/magicui/marquee";
 
+// Lista de comentários/reviews exibidos no componente MarqueeDemo
 const reviews = [
     {
-        name: "Jack",
-        username: "@jack",
-        body: "I've never seen anything like this before. It's amazing. I love it.",
-        img: "https://avatar.vercel.sh/jack",
+        name: "Michael",
+        username: "@michael_pai",
+        body: "A pré-escola é maravilhosa! Meu filho adora os professores e aprende muito todos os dias.",
+        img: "/pais/michael.png",
     },
     {
-        name: "Jill",
-        username: "@jill",
-        body: "I don't know what to say. I'm speechless. This is amazing.",
-        img: "https://avatar.vercel.sh/jill",
+        name: "Viviane",
+        username: "@viviane_mae",
+        body: "Ambiente acolhedor e seguro. Sinto confiança em deixar minha filha aqui.",
+        img: "/pais/viviane.jpeg",
     },
     {
-        name: "John",
-        username: "@john",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/john",
+        name: "Leticia",
+        username: "@leticia_mae",
+        body: "Equipe dedicada e atenciosa. Vejo o desenvolvimento do meu filho a cada semana.",
+        img: "/pais/leticia.jpeg",
     },
     {
-        name: "Jane",
-        username: "@jane",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/jane",
+        name: "Bianca",
+        username: "@bianca_mae",
+        body: "Atividades educativas e recreativas excelentes. Recomendo a todos os pais!",
+        img: "/pais/bia.jpeg",
     },
     {
-        name: "Jenny",
-        username: "@jenny",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/jenny",
+        name: "Gabriela",
+        username: "@gabriela_mae",
+        body: "Meu filho está sempre feliz e animado para ir à escola. Ótimo trabalho!",
+        img: "/pais/gabriela.jpeg",
     },
     {
-        name: "James",
-        username: "@james",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/james",
+        name: "Victor",
+        username: "@victor_pai",
+        body: "A pré-escola faz parte do crescimento do meu filho. Só tenho elogios!",
+        img: "/pais/victor.jpeg",
     },
+    {
+        name: "Danielly",
+        username: "@danielly_mae",
+        body: "Os professores são muito carinhosos e sempre atentos ao bem-estar das crianças. Estou muito satisfeita!",
+        img: "/pais/dani.jpeg",
+    },
+    {
+        name: "Simone",
+        username: "@simone_mae",
+        body: "A pré-escola é um lugar incrível para as crianças aprenderem e se divertirem. Meu filho adora!",
+        img: "/pais/simone.jpeg",
+    },
+    {
+        name: "Natalia",
+        username: "@natalia_mae",
+        body: "Estou impressionada com a qualidade do ensino e o carinho dos professores. Meu filho está se desenvolvendo muito bem!",
+        img: "/pais/natalia.jpeg",
+    },
+    {
+        name: "Luciane",
+        username: "@luciane_mae",
+        body: "A pré-escola é um lugar seguro e divertido para as crianças. Meu filho sempre volta para casa feliz!",
+        img: "/pais/luciane.jpeg",
+    },
+    {
+        name: "Fernando",
+        username: "@fernando_pai",
+        body: "A equipe é muito profissional e dedicada. Vejo o progresso do meu filho a cada dia.",
+        img: "/pais/fernando.jpeg",
+    }
 ];
 
 const firstRow = reviews.slice(0, reviews.length / 2);

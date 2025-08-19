@@ -353,12 +353,12 @@ export default function HomePage() {
               {
                 question: "Qual o horário de funcionamento da pré-escola?",
                 answer:
-                  "Funcionamos das 7h às 18h, com opções de meio período (manhã ou tarde) e período integral para atender às necessidades das famílias.",
+                  "Funcionamos das 7h às 19h, com opções de meio período (manhã ou tarde) e período integral para atender às necessidades das famílias.",
               },
               {
                 question: "Como funciona o processo de matrícula?",
                 answer:
-                  "As matrículas abrem em outubro para o ano seguinte. É necessário agendar uma visita, conhecer nossa proposta pedagógica e apresentar a documentação completa.",
+                  "As matrículas estão sempre abertas! Basta agendar uma visita, conhecer nossa proposta pedagógica e apresentar a documentação necessária para garantir a vaga da criança.",
               },
               {
                 question: "Quantas crianças há por turma?",
@@ -377,12 +377,22 @@ export default function HomePage() {
               {
                 question: "Vocês oferecem atividades extracurriculares?",
                 answer:
-                  "Sim! Oferecemos balé, judô, inglês e atividades artísticas como parte da nossa proposta pedagógica, sem custo adicional.",
+                  "Sim! Oferecemos ballet, judô, inglês e atividades artísticas como parte da nossa proposta pedagógica, sem custo adicional.",
               },
               {
                 question: "Como é feita a comunicação com os pais?",
                 answer:
                   "Mantemos comunicação constante através de agenda diária, reuniões periódicas, WhatsApp e relatórios de desenvolvimento da criança.",
+              },
+              {
+                question: "Aceita auxilio creche?",
+                answer:
+                  "Sim, aceitamos auxílio creche e outros benefícios para facilitar o acesso à educação infantil"
+              },
+              {
+                question: "Como posso agendar uma visita?",
+                answer:
+                  "Basta entrar em contato conosco pelo telefone ou WhatsApp para agendar uma visita guiada e conhecer nossas instalações.",
               },
             ].map((faq, index) => (
               <AccordionItem
