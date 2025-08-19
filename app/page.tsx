@@ -1,3 +1,5 @@
+"use client"
+
 import { HeroCarousel } from "@/components/hero-carousel"
 import { WhatsAppFloat } from "@/components/whatsapp-float"
 import { Navigation } from "@/components/navigation"
@@ -6,9 +8,24 @@ import { MarqueeDemo } from "@/components/comments"
 import { HeroParallaxDemo } from "@/components/paralax"
 import { TypewriterEffectDemo } from "@/components/school"
 import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text"
-import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa"
+import { FooterSocial } from "@/components/footer-social"
+import { FooterLinks } from "@/components/footer-links"
+import { useCallback } from "react"
 
 export default function HomePage() {
+  const handleFooterSmoothScroll = useCallback((event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      event.preventDefault()
+      const targetElement = document.querySelector(href)
+      if (targetElement) {
+        const header = document.querySelector("nav")
+        const headerHeight = header ? header.getBoundingClientRect().height : 0
+        const elementTop = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight
+        window.scrollTo({ top: elementTop, behavior: "smooth" })
+      }
+    }
+  }, [])
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -342,11 +359,15 @@ export default function HomePage() {
       </section >
 
       {/* Updated FAQ Section */}
-      < section className="py-16 px-4 bg-gradient-to-br from-primary/5 to-secondary/5" >
+      <section id="faq" className="py-16 px-4 bg-gradient-to-br from-primary/5 to-secondary/5" >
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-primary">Perguntas Frequentes</h2>
-            <p className="text-lg text-muted-foreground">Tire suas dúvidas sobre nossa pré-escola</p>
+
+            <AnimatedGradientText className="font-heading text-3xl md:text-4xl font-semibold mb-6">
+              Perguntas Frequentes
+            </AnimatedGradientText>
+
+            <p className="text-lg text-muted-foreground mt-1">Tire suas dúvidas sobre nossa pré-escola</p>
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
@@ -455,11 +476,45 @@ export default function HomePage() {
         </div>
       </section> */}
 
+      <section id="endereco" className="py-0 px-4 mt-16">
+        <div className="max-w-4xl mx-auto w-full">
+          <div className="text-center mb-12">
+
+            <AnimatedGradientText className="font-heading text-3xl md:text-4xl font-semibold mb-6">
+              Nosso endereço
+            </AnimatedGradientText>
+            <p className="text-xl md:text-1xl text-muted-foreground mt-2">
+              Av. Padre Vicente Melillo, 1497 - Jardim D'abril, Osasco - SP, 06036-018
+            </p>
+            <p className="text-base md:text-lg text-gray-500 mt-1 max-w-2xl mx-auto">
+              Venha nos visitar! Nossa escola está localizada em um bairro tranquilo e de fácil acesso, com infraestrutura completa para receber sua família com carinho.
+            </p>
+          </div>
+        </div>
+
+
+      </section>
+
+
+      <div className="w-full">
+        <iframe
+          title="Google Maps - Colmeia do Saber"
+          src="https://www.google.com/maps?q=Avenida+Padre+Vicente+Melillo,+1497,+Umuarama,+Osasco,+SP,+06036-018&output=embed"
+          className="w-full h-[400px] md:h-[400px] lg:h-[300px]"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
+
+
+
       {/* Footer */}
 
-      <footer className="bg-muted py-12 px-4">
+      <footer className="bg-muted px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8 border-t border-border pt-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-8 border-t border-gray-300 pt-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
 
@@ -471,84 +526,37 @@ export default function HomePage() {
               <p className="text-muted-foreground text-sm">Cuidando e educando com amor desde os primeiros passos.</p>
             </div>
             <div>
-              <h4 className="font-heading font-semibold mb-4 text-foreground">Links Rápidos</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <a href="#sobre" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Sobre Nós
-                  </a>
-                </li>
-                <li>
-                  <a href="#cursos" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Cursos
-                  </a>
-                </li>
-                <li>
-                  <a href="#infraestrutura" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Infraestrutura
-                  </a>
-                </li>
-                <li>
-                  <a href="#atividades" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Atividades
-                  </a>
-                </li>
-              </ul>
+              <h4 className="font-heading font-semibold mb-4 text-foreground">Links</h4>
+              <FooterLinks />
             </div>
             <div>
               <h4 className="font-heading font-semibold mb-4 text-foreground">Informações</h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <a onClick={e => handleFooterSmoothScroll(e, "#faq")} className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
                     Matrículas
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <a onClick={e => handleFooterSmoothScroll(e, "#faq")} className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
                     Calendário
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  <a onClick={e => handleFooterSmoothScroll(e, "#faq")} className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
                     Documentos
                   </a>
                 </li>
-                <li>
-                  <a href="#contato" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Contato
-                  </a>
-                </li>
+
               </ul>
             </div>
             <div>
               <h4 className="font-heading font-semibold mb-4 text-foreground">Redes Sociais</h4>
-              <div className="flex gap-4">
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-gradient-to-br rounded-lg from-blue-500 to-blue-700 flex items-center justify-center text-white hover:scale-105 transition-transform"
-                  aria-label="Facebook"
-                >
-                  <FaFacebookF size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-gradient-to-br rounded-lg from-pink-500 via-red-500 to-yellow-500 flex items-center justify-center text-white hover:scale-105 transition-transform"
-                  aria-label="Instagram"
-                >
-                  <FaInstagram size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-gradient-to-br rounded-lg from-green-400 to-green-600 flex items-center justify-center text-white hover:scale-105 transition-transform"
-                  aria-label="WhatsApp"
-                >
-                  <FaWhatsapp size={20} />
-                </a>
-              </div>
+              <FooterSocial />
             </div>
           </div>
 
-          <div className="border-t border-border pt-8 text-center">
+          <div className="border-t border-gray-300 pt-8 text-center">
             <p className="text-muted-foreground text-sm">
               © 2025 Pré-Escola Colmeia do Saber. Todos os direitos reservados.
             </p>

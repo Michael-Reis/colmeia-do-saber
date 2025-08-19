@@ -13,7 +13,7 @@ export function Navigation() {
     { href: "#sobre", label: "Sobre Nós" },
     { href: "#cursos", label: "Cursos" },
     { href: "#infraestrutura", label: "Infraestrutura" },
-    { href: "#contato", label: "Contato" },
+    { href: "https://api.whatsapp.com/send/?phone=551145655210", label: "Contato" },
   ]
 
   const handleSmoothScroll = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -48,7 +48,13 @@ export function Navigation() {
                 {item.label}
               </a>
             ))}
-            <Button className="bg-yellow-300 text-black">
+            <Button
+              className="bg-yellow-300 text-black hover:bg-yellow-300 cursor-pointer"
+              onClick={() =>
+                window.location.href =
+                "https://api.whatsapp.com/send/?phone=551145655210&text&type=phone_number&app_absent=0"
+              }
+            >
               <AnimatedShinyText>Matricule-se</AnimatedShinyText>
             </Button>
           </div>
