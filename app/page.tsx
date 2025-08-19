@@ -6,6 +6,7 @@ import { MarqueeDemo } from "@/components/comments"
 import { HeroParallaxDemo } from "@/components/paralax"
 import { TypewriterEffectDemo } from "@/components/school"
 import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text"
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa"
 
 export default function HomePage() {
   return (
@@ -524,21 +525,24 @@ export default function HomePage() {
               <div className="flex gap-4">
                 <a
                   href="#"
-                  className="w-10 h-10 bg-muted hover:bg-accent rounded-full flex items-center justify-center text-muted-foreground hover:text-accent-foreground transition-colors"
+                  className="w-10 h-10 bg-gradient-to-br rounded-lg from-blue-500 to-blue-700 flex items-center justify-center text-white hover:scale-105 transition-transform"
+                  aria-label="Facebook"
                 >
-                  {/* Placeholder for Facebook icon */}
+                  <FaFacebookF size={20} />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 bg-muted hover:bg-accent rounded-full flex items-center justify-center text-muted-foreground hover:text-accent-foreground transition-colors"
+                  className="w-10 h-10 bg-gradient-to-br rounded-lg from-pink-500 via-red-500 to-yellow-500 flex items-center justify-center text-white hover:scale-105 transition-transform"
+                  aria-label="Instagram"
                 >
-                  {/* Placeholder for Instagram icon */}
+                  <FaInstagram size={20} />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 bg-muted hover:bg-accent rounded-full flex items-center justify-center text-muted-foreground hover:text-accent-foreground transition-colors"
+                  className="w-10 h-10 bg-gradient-to-br rounded-lg from-green-400 to-green-600 flex items-center justify-center text-white hover:scale-105 transition-transform"
+                  aria-label="WhatsApp"
                 >
-                  {/* Placeholder for WhatsApp icon */}
+                  <FaWhatsapp size={20} />
                 </a>
               </div>
             </div>
