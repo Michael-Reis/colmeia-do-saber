@@ -13,25 +13,25 @@ const slides: Array<{
 	linkDesktop?: string
 	linkMobile?: string
 }> = [
-	{
-		imageDesktop: "/banner/banner-06.png",
-		imageMobile: "/banner/banner-mobile-1.png",
-		linkDesktop: "https://colmeia.com.br/desktop",
-		linkMobile: "https://colmeia.com.br/mobile",
-	},
-	{
-		imageDesktop: "/banner/banner-02.png",
-		imageMobile: "/banner/banner-mobile-2.png",
-		linkDesktop: "https://colmeia.com.br/desktop2",
-		linkMobile: "https://colmeia.com.br/mobile2",
-	},
-	{
-		imageDesktop: "/banner/banner-05.png",
-		imageMobile: "/banner/banner-mobile-3.png",
-		linkDesktop: "https://colmeia.com.br/desktop3",
-		linkMobile: "https://colmeia.com.br/mobile3",
-	},
-]
+		{
+			imageDesktop: "/banner/banner-06.png",
+			imageMobile: "/banner/banner-mobile-1.png",
+			linkDesktop: "https://wa.me/551145655210",
+			linkMobile: "https://wa.me/551145655210",
+		},
+		{
+			imageDesktop: "/banner/banner-02.png",
+			imageMobile: "/banner/banner-mobile-2.png",
+			linkDesktop: "https://wa.me/551145655210",
+			linkMobile: "https://wa.me/551145655210",
+		},
+		{
+			imageDesktop: "/banner/banner-05.png",
+			imageMobile: "/banner/banner-mobile-3.png",
+			linkDesktop: "https://wa.me/551145655210",
+			linkMobile: "https://wa.me/551145655210",
+		},
+	]
 
 export function HeroCarousel() {
 	const [currentSlide, setCurrentSlide] = useState(0)
@@ -59,13 +59,19 @@ export function HeroCarousel() {
 			{slides.map((slide, index) => (
 				<div
 					key={index}
-					className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100" : "opacity-0"
-						}`}
+					className={`absolute inset-0 transition-opacity duration-1000 cursor-pointer ${index === currentSlide ? "opacity-100" : "opacity-0"
+						}`
+					}
+					onClick={() => {
+						if (slide.linkDesktop) {
+							window.open(isMobile ? slide.linkMobile : slide.linkDesktop, "_blank")
+						}
+					}}
 				>
 					<img
 						src={isMobile ? slide.imageMobile : slide.imageDesktop}
 						alt={slide.title}
-						className="w-full h-full object-cover"
+						className="w-full h-full object-cover cursor-pointer"
 					/>
 					<div className="absolute inset-0" />
 					<div className="absolute inset-0 flex items-center justify-center">
