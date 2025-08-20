@@ -27,13 +27,18 @@ export function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-23">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <AnimatedGradientText className="font-heading font-bold text-xl" colorFrom="#F0DC00" colorTo="#FB26FF" >
+            <img
+              src="logo.png"
+              alt="logo"
+              className="h-20 md:h-20 lg:h-23 w-auto"
+            // style={{ maxHeight: "3rem" }}
+            />
+            {/* <AnimatedGradientText className="font-heading font-bold text-xl" colorFrom="#F0DC00" colorTo="#FB26FF" >
               Colmeia do Saber
-            </AnimatedGradientText>
-
+            </AnimatedGradientText> */}
           </div>
 
           {/* Desktop Menu */}
@@ -49,7 +54,7 @@ export function Navigation() {
               </a>
             ))}
             <Button
-              className="bg-yellow-300 text-black hover:bg-yellow-300 cursor-pointer"
+              className="bg-yellow-300 text-black hover:bg-yellow-300 sm:bg-yellow-300 sm:text-black cursor-pointer"
               onClick={() =>
                 window.location.href =
                 "https://api.whatsapp.com/send/?phone=551145655210&text&type=phone_number&app_absent=0"
@@ -82,7 +87,7 @@ export function Navigation() {
                   {item.label}
                 </a>
               ))}
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 mt-2">Matricule-se</Button>
+              <Button className="bg-yellow-300 text-black hover:bg-yellow-300 sm:bg-yellow-300 sm:text-black cursor-pointer mt-2">Matricule-se</Button>
             </div>
           </div>
         )}
