@@ -107,7 +107,7 @@ export default function HomePage() {
             </AnimatedGradientText>
 
             <h2 className="font-heading text-3xl md:text-4xl font-semibold mb-4 text-gray-800"></h2>
-            <p className="text-lg text-gray-600 text-gray-500">
+            <p className="text-lg text-gray-600 ">
               O que nos torna especiais no cuidado e educação das crianças
             </p>
           </div>
