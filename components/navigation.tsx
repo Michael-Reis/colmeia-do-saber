@@ -44,14 +44,27 @@ export function Navigation() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
             {menuItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-gray-600 transition-colors font-light"
-                onClick={(e) => handleSmoothScroll(e, item.href)}
-              >
-                {item.label}
-              </a>
+
+              item.label === "Contato" ? (
+                <a
+                  key={item.href}
+                  // href={item.href}
+                  className="text-gray-600 transition-colors font-light cursor-pointer"
+                  onClick={() => window.open(item.href, "_blank")}
+                >
+                  {item.label}
+                </a>
+              ) : (
+
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-gray-600 transition-colors font-light"
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
+                >
+                  {item.label}
+                </a>
+              )
             ))}
             <Button
               className="bg-yellow-300 text-black hover:bg-yellow-300 sm:bg-yellow-300 sm:text-black cursor-pointer"
@@ -75,17 +88,28 @@ export function Navigation() {
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
               {menuItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="text-foreground hover:text-primary transition-colors font-medium py-2"
-                  onClick={(e) => {
-                    handleSmoothScroll(e, item.href)
-                    setIsOpen(false)
-                  }}
-                >
-                  {item.label}
-                </a>
+                item.label === "Contato" ? (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="text-foreground hover:text-primary transition-colors font-medium py-2"
+                    onClick={() => window.open(item.href, "_blank")}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="text-foreground hover:text-primary transition-colors font-medium py-2"
+                    onClick={(e) => {
+                      handleSmoothScroll(e, item.href)
+                      setIsOpen(false)
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                )
               ))}
               <Button className="bg-yellow-300 text-black hover:bg-yellow-300 sm:bg-yellow-300 sm:text-black cursor-pointer mt-2">Matricule-se</Button>
             </div>
